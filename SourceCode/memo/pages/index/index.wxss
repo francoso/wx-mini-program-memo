@@ -168,6 +168,17 @@
   white-space: nowrap;
 }
 
+.index .body .block .box .box-inside .number_1 {
+  display: block;
+  color: rgb(32, 32, 32);
+  font-size: 10px;
+  font-weight: 550px;
+  margin-bottom: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .index .body .block .box .box-inside .content {
   display: block;
   font-size: 14px;

@@ -27,7 +27,7 @@
         <view class='box' wx:for="{{memoListData}}" for="null" wx:for-item="item" wx:for-index="index" wx:key="memoId">
           <view class="box-inside" bindtap='onClickEdit' bindlongpress="onClickLongDelete" bindtouchstart="touchStart" bindtouchend="touchEnd" data-item="{{item}}" data-index="{{index}}">
             <p class="title">{{item.title}}</p>
-            <p class="title">{{item.number_1}}</p>
+            <p class="number_1">第一个数：{{item.number_1}}</p>
             <p class='content'>{{item.content}}</p>
             <p class="time">{{item.time}}</p>
           </view>
