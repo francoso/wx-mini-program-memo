@@ -32,9 +32,9 @@ Page({
    */
   onClickDisclaimer() {
     wx.showModal({
-      title: '免责声明',
-      content: '软件仅供技术交流，请勿用于商业及非法用途，如产生法律纠纷与本人无关!',
-      showCancel: false
+      title: '制作人的话',
+      content: '做个软件不容易，求老师给分高点',
+      showCancel: true
     })
   }
 

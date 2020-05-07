@@ -23,7 +23,7 @@
   height: 42px;
   line-height: 42px;
   text-align: center;
-  color: #ff9700;
+  color: #155daf;
 }
 
 .new .header .delete {

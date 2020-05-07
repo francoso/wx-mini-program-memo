@@ -20,6 +20,8 @@
 		"nodeModules": false,
 		"autoAudits": false
 	},
-	"appid": "wx8140028c418b5886",
+	"appid": "wx244a22ab7a71d068",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {}
 }

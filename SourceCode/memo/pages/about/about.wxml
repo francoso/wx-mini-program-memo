@@ -1,19 +1,19 @@
 <view class="container">
   <view class="logo">
-    <cover-image class="img" src="/assets/imgs/logo.jpg" />
+    <cover-image class="img" src="/assets/imgs/Mylogo.jpg" />
   </view>
   <view class="text">
     <text class='title'>
-      关于备忘录
+      关于该程序
     </text>
     <text class='content'>
-    帮你记录一些重要的会话信息
-    所有的信息均保存至手机缓存
-    创建于 2019
+    帮你记录各种理财常用表格，
+    所有信息保存至手机缓存，
+    助你一臂之力。
     </text>
   </view>
   <view class="disclaimer" bindtap="onClickDisclaimer">
-    免责声明
+    制作人的话
   </view>
 
 </view>
