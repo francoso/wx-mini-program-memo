@@ -1,4 +1,5 @@
 "use strict";
+//utils用于获取时间的模块，因为多次调用，所以单独封装到utils。
 Object.defineProperty(exports, "__esModule", { value: true });
 function formatTime(date, dateSignTemp, timeSignTemp) {
     var dateSign = dateSignTemp ? dateSignTemp : "/";
