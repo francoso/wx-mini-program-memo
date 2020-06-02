@@ -22,14 +22,19 @@
     <view class='title'>
       <textarea bindinput="memoTitle" placeholder="请输入标题" maxlength="-1" auto-focus="true" focus="true" value="{{title}}" />
     </view>
-    <view class='title'>
+    <!--设置监听器，当点击radio时调用-->
+    <radio-group bindchange="listenerRadioGroup">
+    <!--label通常与radio和checkbox结合使用-->
+       <label style="display: flex" wx:for-items="{{array}}">
+           <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}
+       </label>
+    </radio-group>
+    <view class='number'>
+      <text class='text'>{{"\n输入增加的资产/负债"}}</text>
       <textarea bindinput="memoNumber_1" placeholder="请输入number1" maxlength="-1" auto-focus="true" focus="true" value="{{number_1}}" />
     </view>
-    <view class='title'>
-      <textarea bindinput="memoNumber_2" placeholder="请输入number2" maxlength="-1" auto-focus="true" focus="true" value="{{number_2}}" />
-    </view>
     <view class='content'>
-      <textarea bindinput="memoContent" placeholder="请输入备忘录内容" maxlength="-1" auto-height='true' value="{{content}}" />
+      <textarea bindinput="memoContent" placeholder="请输入具体内容" maxlength="-1" auto-height='true' value="{{content}}" />
     </view>
   </view>
 </view>

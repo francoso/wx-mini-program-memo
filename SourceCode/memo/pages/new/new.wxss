@@ -66,6 +66,33 @@
   padding-bottom: 5px;
 }
 
+.new.body.text{
+  color: #000;
+  font-weight: 200;
+  height:16px;
+  font-size: small;
+}
+
+.new .body .number{
+  border-bottom:1px solid #ccc;
+  padding-bottom:5px;
+}
+
+.new .body .number textarea{
+  color:#000 !important;
+  font-weight:200 !important;
+  height:16px;
+  z-index:50 !important;
+}
+
+.new .body .number text{  
+  padding: 0px;
+  line-height: 10px;
+  height: 16px;
+  text-align: left;
+  color:#000;
+}
+
 .new .body .title textarea {
   color: #000 !important;
   font-weight: 550 !important;

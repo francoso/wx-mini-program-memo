@@ -5,15 +5,34 @@ var util_2 = require("../../utils/util");
 //此处要修改，主要是把content换成表格形式。
 Page({
     data: {
+        array:[
+            {name: '资产', value:true,checked:"ture"},
+            {name: '负债', value:false,checked:""},
+        ],
         id: '',
         time: '',
         title: '',
         content: '',
         number_1: 0,
-        number_2: 0,
         memoListData: [],
-        isEdit: false
+        isEdit: false,
+        IsAdd:true
     },
+    listenerRadioGroup: function(e) {
+        var memoListData = wx.getStorageSync('memoListData');
+        if (memoListData) {
+            var id = wx.getStorageSync('id');
+            for (var i = 0; i < memoListData.length; i++) {
+                if (memoListData[i].id == id) {
+                    this.setData({
+                        IsAdd: e.detail.value,
+                    });
+                    break;
+                }
+            }
+        }
+        console.log(e.detail.value)
+      },
     onLoad: function () {
         this.setData({
             time: util_1.formatTime(new Date(), "-")
@@ -40,7 +59,7 @@ Page({
             var memoListData = wx.getStorageSync('memoListData');
             if (isEdit) {
                 wx.setNavigationBarTitle({
-                    title: '备忘录 - 编辑'
+                    title: '负债资产表 - 编辑'
                 });
                 if (memoListData) {
                     var id = wx.getStorageSync('id');
@@ -52,7 +71,6 @@ Page({
                                 title: memoListData[i].title,
                                 content: memoListData[i].content,
                                 number_1:memoListData[i].number_1,
-                                number_2:memoListData[i].number_2,
                                 memoListData: memoListData,
                                 isEdit: true
                             });
@@ -70,7 +88,7 @@ Page({
             }
             else {
                 wx.setNavigationBarTitle({
-                    title: '备忘录 - 新建'
+                    title: '负债资产表 - 编辑'
                 });
                 this.setData({
                     id: '',
@@ -78,13 +96,12 @@ Page({
                     title: '',
                     content: '',
                     number_1:0,
-                    number_2:0,
                     memoListData: memoListData ? memoListData : [],
                     isEdit: false
                 });
                 wx.setTabBarItem({
                     index: 1,
-                    text: '新建',
+                    text: '记录',
                     iconPath: 'assets/imgs/tabBarNew.png',
                     selectedIconPath: 'assets/imgs/tabBarNewSelected.png'
                 });
@@ -96,7 +113,7 @@ Page({
         try {
             wx.setTabBarItem({
                 index: 1,
-                text: '新建',
+                text: '记录',
                 iconPath: 'assets/imgs/tabBarNew.png',
                 selectedIconPath: 'assets/imgs/tabBarNewSelected.png'
             });
@@ -118,11 +135,6 @@ Page({
             number_1:e.detail.value
         });
     },
-    memoNumber_2:function(e){
-        this.setData({
-            number_2:e.detail.value
-        });
-    },
     cancel: function () {
         try {
             this.setData({
@@ -131,14 +143,14 @@ Page({
                 title: '',
                 content: '',
                 number_1:0,
-                number_2:0,
-                memoListData: []
+                memoListData: [],
+                IsAdd:true,
             });
             wx.setStorageSync('isEdit', false);
             this.data.isEdit = false;
             wx.setTabBarItem({
                 index: 1,
-                text: '新建',
+                text: '记录',
                 iconPath: 'assets/imgs/tabBarNew.png',
                 selectedIconPath: 'assets/imgs/tabBarNewSelected.png'
             });
@@ -194,7 +206,7 @@ Page({
         var title = this.data.title;
         var content = this.data.content;
         var number_1 = this.data.number_1;
-        var number_2 = this.data.number_2;
+        var IsAdd = this.data.IsAdd;
         if (title == '') {
             wx.showToast({
                 title: '请输入标题',
@@ -211,7 +223,7 @@ Page({
                         this.data.memoListData[i].title = title;
                         this.data.memoListData[i].content = content;
                         this.data.memoListData[i].number_1 = number_1;
-                        this.data.memoListData[i].number_2 = number_2;
+                        this.data.memoListData[i].IsAdd=IsAdd;
                         break;
                     }
                 }
@@ -223,7 +235,7 @@ Page({
                     "title": title,
                     "content": content,
                     "number_1":number_1,
-                    "number_2":number_2,
+                    "IsAdd":IsAdd
                 });
             }
             try {
