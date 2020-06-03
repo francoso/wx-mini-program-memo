@@ -110,3 +110,41 @@
   max-width: 100% !important;
   z-index: 50 !important;
 }
+
+.new .body .radio .wx-radio-input{
+
+  border-radius:10%;
+
+  width:20px;height:20px;
+
+}
+radio .wx-radio-input.wx-radio-input-checked{
+
+  border-color:rgba(18, 218, 78, 0.63) !important;
+
+  background:rgb(47, 240, 105) !important;
+
+}
+radio .wx-radio-input.wx-radio-input-checked::before{
+
+  border-radius:50%;
+
+  width:20px;
+
+  height:20px;
+
+  line-height:20px;
+
+  text-align:center;
+
+  font-size:15px;
+
+  color:#fff;
+
+  background:transparent;
+
+  transform:translate(-50%, -50%) scale(1);
+
+  -webkit-transform:translate(-50%, -50%) scale(1);
+
+}

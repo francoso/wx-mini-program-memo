@@ -23,7 +23,7 @@
       <textarea bindinput="memoTitle" placeholder="请输入标题" maxlength="-1" auto-focus="true" focus="true" value="{{title}}" />
     </view>
     <!--设置监听器，当点击radio时调用-->
-    <radio-group bindchange="listenerRadioGroup">
+    <radio-group class="wx-radio-input" bindchange="listenerRadioGroup">
     <!--label通常与radio和checkbox结合使用-->
        <label style="display: flex" wx:for-items="{{array}}">
            <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.name}}

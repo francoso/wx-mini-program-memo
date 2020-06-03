@@ -14,8 +14,10 @@
           <view class="box-inside {{item.isTouchMove?'touch-move-active':''}}">
             <view bindtap='onClickEdit' class="content" data-item="{{item}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
               <p class="title">{{item.title}}</p>
-              <view wx:if="{{item.IsAdd}}"><p class="title">资产记录：{{item.number_1}}</p> </view>
-              <view wx:if="{{!item.IsAdd}}"><p class="title">负债记录：{{item.number_1}}</p> </view>
+              <view wx:if="{{item.IsAdd==0}}"><p class="title">流动资产：{{item.number_1}}</p> </view>
+              <view wx:if="{{item.IsAdd==1}}"><p class="title">非流动资产：{{item.number_1}}</p> </view>
+              <view wx:if="{{item.IsAdd==2}}"><p class="title">流动负债：{{item.number_1}}</p> </view>
+              <view wx:if="{{item.IsAdd==3}}"><p class="title">非流动负债：{{item.number_1}}</p> </view>              
               <p class="time">{{item.time}}</p>
               <i class="fa fa-angle-right icon"></i>
             </view>
@@ -27,8 +29,10 @@
       <view wx:elif="{{!isListMode}}" class='block'>
         <view class='box' wx:for="{{memoListData}}" for="null" wx:for-item="item" wx:for-index="index" wx:key="memoId">
           <view class="box-inside" bindtap='onClickEdit' bindlongpress="onClickLongDelete" bindtouchstart="touchStart" bindtouchend="touchEnd" data-item="{{item}}" data-index="{{index}}" >
-            <view wx:if="{{item.IsAdd}}"> 资产记录 </view>
-            <view wx:if="{{!item.IsAdd}}"> 负债记录 </view>            
+            <view wx:if="{{item.IsAdd==0}}"> 流动资产 </view>
+            <view wx:if="{{item.IsAdd==1}}"> 非流动资产 </view>
+            <view wx:if="{{item.IsAdd==2}}"> 流动负债 </view>
+            <view wx:if="{{item.IsAdd==3}}"> 非流动负债 </view>                
             <p class="title">{{item.title}}</p>
             <p class="number_1">数额：{{item.number_1}}</p>
             <p class='content'>{{item.content}}</p>

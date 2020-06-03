@@ -11,19 +11,26 @@
   </view>
   <view class='table-wrapper'>
   <!--<view class='nodata' wxview:if='{{list.length === 0}}'>本月暂无工资数据</view>!-->
-    <view class='row1' wx:if='{{list.length > 0}}' wx:for='{{list}}' wx:key='{{item.id}}'>
+    <view class='row1' wx:if='{{list.length > 0}}' wx:for='{{list}}' wx:key='{{item.id}}' wx:for-index="idx1">
       <text class='text'>{{item.name}}</text>
       <view class='column2-wrapper'>
         <view class='column-value' wx:if='{{item.value}}'>{{item.value}}</view>
-        <view class='column2' wx:if='{{item.children.length > 0}}' wx:for='{{item.children}}' wx:for-item='item2' wx:key='{{item2.id}}'>
+        <view class='column2' wx:if='{{item.children.length > 0}}' wx:for='{{item.children}}' wx:for-item='item2' wx:key='{{item2.id}}' wx:for-index="idx2">
           <text class='text'>{{item2.name}}</text>
           <view class='column3-wrapper'>
-            <view class='column-value' wx:if='{{item2.value}}'>{{item2.value}}</view>
-            <view class='column3' wx:if='{{item2.children.length > 0}}' wx:for='{{item2.children}}' wx:for-item='item3' wx:key='{{item3.id}}'>
-              <text class='text'>{{item3.name}}</text>
+            <view class='column3' wx:for='{{memoListData}}' wx:for-item='item3' wx:key='{{item3.id}}' wx:index='{{item2.idx}}' wx:for-index="idx3">
+             <block wx:if='{{idx1==0&&idx2==item3.IsAdd}}'>
+              <text class='text'>{{item3.title}}</text>
               <view class='column4-wrapper'>
-                <view class='column-value' wx:if='{{item3.value}}'>{{item3.value}}</view>
+                <view class='column-value' wx:if='{{item3.number_1}}'>{{item3.number_1}}</view>
               </view>
+              </block>
+             <block wx:if='{{idx1==1&&(idx2+2)==item3.IsAdd}}'>
+              <text class='text'>{{item3.title}}</text>
+              <view class='column4-wrapper'>
+                <view class='column-value' wx:if='{{item3.number_1}}'>{{item3.number_1}}</view>
+              </view>
+              </block>
             </view>
           </view>
         </view>

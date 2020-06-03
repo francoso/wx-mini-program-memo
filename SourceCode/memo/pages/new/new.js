@@ -6,8 +6,10 @@ var util_2 = require("../../utils/util");
 Page({
     data: {
         array:[
-            {name: '资产', value:true,checked:"ture"},
-            {name: '负债', value:false,checked:""},
+            {name: '流动资产', value:0,checked:"ture"},
+            {name: '非流动资产', value:1,checked:""},
+            {name: '流动负债', value:2,checked:""},
+            {name: '非流动负债', value:3,checked:""},
         ],
         id: '',
         time: '',
@@ -16,7 +18,7 @@ Page({
         number_1: 0,
         memoListData: [],
         isEdit: false,
-        IsAdd:true
+        IsAdd:0
     },
     listenerRadioGroup: function(e) {
         var memoListData = wx.getStorageSync('memoListData');
@@ -144,7 +146,7 @@ Page({
                 content: '',
                 number_1:0,
                 memoListData: [],
-                IsAdd:true,
+                IsAdd:0,
             });
             wx.setStorageSync('isEdit', false);
             this.data.isEdit = false;
